@@ -15,6 +15,10 @@ body {
     radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
   background-repeat: repeat;
   background-size: 200px 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .ship {
   position: absolute;
@@ -25,11 +29,6 @@ body {
   transform-origin: 335% 500%;
 }
 #menu {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
   color: white;
   font-family: monospace;
   font-size: 36px;
@@ -49,10 +48,22 @@ body {
 }
 button {
   padding: 10px 15px;
+  margin-top: 3rem;
   border-radius: 10px 0px 10px 0px;
   outline: 0;
   font-family: monospace;
+  border: none;
+  transition: .5s ease;
 }
+button:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0 0 10px #FFF;
+  background-color: transparent;
+  transition: .5s ease;
+}
+
 @keyframes fadeInOut {
   0%,
   100% {

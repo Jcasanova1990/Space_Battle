@@ -1,0 +1,76 @@
+  .auto_audio {
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 5px;
+  }
+  
+  /* Style the range input */
+  .auto_audio input[type="range"] {
+    width: 100px;
+    /* Set the width of the slider */
+    height: 10px;
+    /* Set the height of the slider */
+    border: none;
+    background: #ccc;
+    /* Background color of the slider track */
+    border-radius: 5px;
+    /* Rounded corners */
+    /* margin: 0; */
+    /* Remove default styling */
+  }
+  
+  /* Style the slider thumb (handle) */
+  
+  .auto_audio input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: .75rem;
+    /* Width of the slider thumb */
+    height: 2.25rem;
+    /* Height of the slider thumb */
+    background: darkred;
+    /* Color of the slider thumb */
+    border-radius: 75%;
+    /* Rounded shape */
+    cursor: pointer;
+    /* Cursor on hover */
+  }
+  
+  #volumeSlider {
+    /* border-radius: 100%; */
+    /* cursor: pointer; */
+    width: 28rem;
+    height: 1rem;
+    appearance: none !important;
+    /* background-color: lime; */
+    background: linear-gradient(to right, gray 0%, gray 100%);
+    background-size: 100% 100%;
+    /* background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 50%,
+      limegreen 50%
+    );*/
+  }
+  
+  #muteButton {
+    display: block;
+    width: 9rem;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    opacity: 0.9;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.6s, opacity 0.3s;
+    margin-top: 1rem;
+    /* Keep a fixed margin from the left */
+    /* margin-left: 2rem; */
+  }
+  
+  #muteButton:hover {
+    background-color: limegreen;
+    opacity: 1;
+  }

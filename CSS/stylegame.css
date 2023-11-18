@@ -35,17 +35,14 @@ body {
   border: 1px solid white;
   z-index: 2;
 }
-
 .hp-bars__player, .hp-bars__enemy {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 .player-container, .enemy-container {
   width: 90%;
 }
-
 .player-name,
 .enemy-name {
   color: white;
@@ -53,11 +50,9 @@ body {
   font-size: 2rem;
   margin: 2rem auto 0;
 }
-
 .level {
   width: 100%;
 }
-
 .hp-bars {
   display: flex;
   justify-content: space-evenly;
@@ -81,7 +76,6 @@ body {
   margin-top: 2rem;
   width: 10rem;
 } */
-
 .level {
   margin-top: 2rem;
   width: 20rem;
@@ -92,7 +86,6 @@ body {
   font-weight: bold;
   font-family: monospace;
 }
-
 /* Wills health bars */
 #player-health-bar, #enemy-health-bar {
   width: 100%;
@@ -100,36 +93,29 @@ body {
   appearance: none;
   border: 1px solid #ccc;
 }
-
 #player-health-bar::-webkit-progress-bar, #enemy-health-bar::-webkit-progress-bar {
   width: 100%;
 }
-
 #player-health-bar::-webkit-progress-value, #enemy-health-bar::-webkit-progress-value {
   width: 100%;
 }
-
 #player-health-bar::-webkit-progress-bar {
   background-color: #F2F2F2;
 }
 #player-health-bar::-webkit-progress-value {
   background-color: limegreen;
 }
-
 #enemy-health-bar::-webkit-progress-bar {
   background-color: #F2F2F2;
 }
-
 #enemy-health-bar::-webkit-progress-value {
   background-color: red;
 }
-
 /* Player Ship/Enemy Ship Styling */
 .characters {
+  /* margin-top: 30rem; */
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  height: 50%;
 }
 .player {
   width: 40rem;
@@ -138,12 +124,9 @@ body {
 }
 .player-ship {
   position: absolute;
-  right: -2rem;
+  width: 55rem;
+  left: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  margin-left: 10rem;
 }
 .player-attack {
   position: absolute;
@@ -154,24 +137,28 @@ body {
   animation: playerAttack 3s ease;
 }
 .enemy {
-  width: 40rem;
   margin-bottom: 10rem;
   animation: shipIdleEnemy 3s infinite;
 }
 .enemy-ship {
-  position: absolute;
-  left: 0rem;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 80rem;
+  margin-right: auto;
 }
-.garbage-attack {
+/* .garbage-attack {
   position: absolute;
   width: 10rem;
   left: 5rem;
   bottom: 9.5rem;
   z-index: -1000;
   animation: garbageAttack 12s ease;
+} */
+.arthur-attack {
+  position: absolute;
+  width: 10rem;
+  margin-right: 0rem;
+  bottom: 9.5rem;
+  z-index: -1000;
+  animation: garbageAttack 8s ease;
 }
 /* Play Logs */
 .play-logs {
@@ -233,7 +220,6 @@ body {
   border: 2px solid rgb(103, 202, 77);
   color: rgb(103, 202, 77);
 }
-
 .game-over-container {
   width: 100%;
   height: 100%;
@@ -247,7 +233,6 @@ body {
   font-size: 4rem;
   z-index: 3000;
 }
-
 .game-over-btn {
   width: 20rem;
   height: 10rem;
@@ -260,7 +245,6 @@ body {
   background-color: rgb(209, 53, 48);
   margin-top: 3rem;
 }
-
 .game-over-btn:hover {
   cursor: pointer;
   background-color: transparent;
@@ -274,6 +258,12 @@ body {
   background-color: transparent;
   color: rgb(209, 53, 48);
 }
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 /* ADDED BY WILLY */
 @media screen and (max-width: 890px) {
   .player-ship {
@@ -285,11 +275,9 @@ body {
     left: 5rem;
     bottom: 12rem;
   }
-
   .enemy-ship {
     width: 25rem;
   }
-
   .garbage-attack {
     width: 7rem;
     left: 9rem;

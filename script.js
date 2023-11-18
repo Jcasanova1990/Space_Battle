@@ -213,7 +213,7 @@ level.textContent = `${player1.level}`;
     const timeout = setTimeout(() => {        
         enemies[currentEnemyIndex].attack(player1);   
         initializeContent(player1, enemies[currentEnemyIndex]);
-        gameOver(player1);
+        gameComplete(player1);
     }, 100);
 
     if (player1.currentHp === 0) {
@@ -234,7 +234,8 @@ level.textContent = `${player1.level}`;
             level.textContent = `${player1.level}`;
             attackBtnEl.disabled = false;
             repairBtnEl.disabled = false;
-        // }else {
+        }
+        // else {
         //     window.location.href = 'endscreen.html'
         //     playLogs.innerHTML = "You win!";
         //     console.log("You win!");
@@ -267,7 +268,7 @@ repairBtnEl.addEventListener("click", e => {
     }, 2000);    
 });
 
-function gameOver(player) {
+function gameComplete(player) {
     if (player.currentHp <= 0){
         window.location.href = "endscreen.html"
     }
