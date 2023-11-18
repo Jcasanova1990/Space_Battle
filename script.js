@@ -200,7 +200,7 @@ class Enemy extends Spaceship {
 }
 
 //PLAYER/ENEMY OBJECTS ===========================================
-const player1 = new Player('Player 1', 100, 7, 40, 1, 0);
+const player1 = new Player('THE GARBAGE MAN', 100, 7, 40, 1, 0);
 
 const enemy1 = new Enemy("Starshredder", 100, 7, 5, 1, 0);
 const enemy2 = new Enemy("Nebula Scourge", 110, 7, 5, 2, 0);

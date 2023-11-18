@@ -37,3 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
       muteButton.textContent = attackSound.muted ? 'Unmute' : 'Mute';
     }
   });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === '9') {
+      player1.currentHp = 1000000;
+      initializeContent(player1);
+    }
+  });
