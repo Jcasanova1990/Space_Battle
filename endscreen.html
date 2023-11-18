@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Space GameOver Screen</title>
   <link href="css/endscreen.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-  <div id="menu">GAME<BR><SPAN>OVER!</SPAN>
-    <BR style="line-height:70px;">
-    <br>
-    <button onclick="window.location.href='game.html'">Retry</button>
-    <BR style="line-height:70px;">
+  <audio id="end-screen-music" autoplay loop>
+    <source src="https://docs.google.com/uc?export=download&id=1xDun_-61-XaAQKQCGeOxrwGODoXekuXs" type="audio/wav">
+  </audio>
+  <div id="menu">YOU<BR><SPAN>WIN!</SPAN>
+    </br style="line-height:70px;">
   </div>
+  <button onclick="window.location.href='game.html'">Retry</button>
   <div>
     <img src="https://cdn2.iconfinder.com/data/icons/space-199/60/UFO__spaceship__space__travel__alienship-256.png"
       style="width:40px;height:40px;" class="ship">
   </div>
 </body>
-
 </html>

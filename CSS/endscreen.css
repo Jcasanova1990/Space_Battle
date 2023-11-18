@@ -1,83 +1,72 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    perspective: 33vw;
-    background: #111;
-    background-image:
-      radial-gradient(2px 2px at 20px 30px, #FFFFFF, rgba(0, 0, 0, 0)),
-      radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
-      radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
-      radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
-      radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
-      radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
-    background-repeat: repeat;
-    background-size: 200px 200px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  perspective: 33vw;
+  background: #111;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #FFFFFF, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+.ship {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  animation: infinite-spinning 4s infinite;
+  animation-timing-function: linear;
+  transform-origin: 335% 500%;
+}
+#menu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-family: monospace;
+  font-size: 36px;
+  transition: 2s;
+  user-select: none;
+  text-shadow: 3px 3px black, 3px -3px black, 6px 6px red, 9px 9px white, 12px 12px red, 15px 15px white, 18px 18px red;
+  animation: fadeInOut 7s ease-in-out infinite;
+}
+#menu span {
+  font-size: 150px;
+  line-height: 110px;
+  font-weight: 900;
+  text-shadow: 3px 3px black, 3px -3px black, 6px 6px red, 9px 9px white, 12px 12px red, 15px 15px white, 18px 18px red;
+}
+#menu .stuff {
+  font-size: 18px;
+}
+button {
+  padding: 10px 15px;
+  border-radius: 10px 0px 10px 0px;
+  outline: 0;
+  font-family: monospace;
+}
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
   }
-  
-  .ship {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    animation: infinite-spinning 4s infinite;
-    animation-timing-function: linear;
-    transform-origin: 335% 500%;
+  50% {
+    opacity: 1;
   }
-  
-  #menu {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-family: monospace;
-    font-size: 36px;
-    transition: 2s;
-    user-select: none;
-    text-shadow: 3px 3px black, 3px -3px black, 6px 6px red, 9px 9px white, 12px 12px red, 15px 15px white, 18px 18px red;
-    animation: fadeInOut 7s ease-in-out infinite;
+}
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
   }
-  
-  #menu span {
-    font-size: 150px;
-    line-height: 110px;
-    font-weight: 900;
-    text-shadow: 3px 3px black, 3px -3px black, 6px 6px red, 9px 9px white, 12px 12px red, 15px 15px white, 18px 18px red;
+  to {
+    transform: rotate(360deg);
   }
-  
-  #menu .stuff {
-    font-size: 18px;
-  }
-  
-  #menu button {
-    padding: 10px 15px;
-    border-radius: 10px 0px 10px 0px;
-    outline: 0;
-    font-family: monospace;
-    cursor: pointer;
-  }
-  
-  @keyframes fadeInOut {
-  
-    0%,
-    100% {
-      opacity: 0;
-    }
-  
-    50% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes infinite-spinning {
-    from {
-      transform: rotate(0deg);
-    }
-  
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}

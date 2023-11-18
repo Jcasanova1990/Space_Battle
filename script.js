@@ -20,6 +20,9 @@ const playLogs = document.getElementById('play-logs');
 //ENEMY SHIPS
 const enemyImgEl = document.getElementById('enemy-ship');
 
+const heroContainer = document.querySelector('.hero-container')
+const gameOver = document.querySelector('.game-over-container')
+
 
 // UTILITY FUNCTIONS ===========================================
 //FUNCTION TO GENERATE RANDOM NUMBER
@@ -49,6 +52,7 @@ function initializeContent(player, enemy) {
     enemyHealthBarEl.setAttribute('value', enemies[currentEnemyIndex].currentHp);
     enemyHealthNumberEl.textContent = enemies[currentEnemyIndex].currentHp;
     enemyHealthMaxNumberEl.textContent = enemies[currentEnemyIndex].maxHp;
+// endGame(player, enemy)
 }
 
 // SPACESHIP CLASS =========================================================
@@ -171,7 +175,7 @@ class Enemy extends Spaceship {
 
 
 //PLAYER/ENEMY OBJECTS ===========================================
-const player1 = new Player('Player 1', 100, 7, 10, 1, 0);
+const player1 = new Player('Player 1', 100, 7, 80, 1, 0);
 
 const enemy1 = new Enemy("Starshredder", 100, 7, 5, 1, 0);
 const enemy2 = new Enemy("Nebula Scourge", 100, 7, 5, 2, 0);
@@ -209,10 +213,13 @@ level.textContent = `${player1.level}`;
     const timeout = setTimeout(() => {        
         enemies[currentEnemyIndex].attack(player1);   
         initializeContent(player1, enemies[currentEnemyIndex]);
+        gameOver(player1);
     }, 100);
 
-    if (player1.currentHp <= 0) {
-        window.location.href = 'endscreen.html'
+    if (player1.currentHp === 0) {
+        gameOver.style.display = "flex"
+        heroContainer.style.filter = 'blur(10px)'
+    
     }
 
     if (enemies[currentEnemyIndex].currentHp <= 0) {
@@ -227,15 +234,15 @@ level.textContent = `${player1.level}`;
             level.textContent = `${player1.level}`;
             attackBtnEl.disabled = false;
             repairBtnEl.disabled = false;
-        } else {
-            window.location.href = 'endscreen.html'
-            playLogs.innerHTML = "You win!";
-            console.log("You win!");
-        }
+        // }else {
+        //     window.location.href = 'endscreen.html'
+        //     playLogs.innerHTML = "You win!";
+        //     console.log("You win!");
+        // }
+        
         //update img src for enemy ship
         if (player1.level === 2) {
             enemyImgEl.src = 'images/spaceshits_420.png'
-            // enemyImgEl.style.height = '39rem'
         } else if (player1.level === 3) {
             enemyImgEl.src = 'images/spaceshits_420.png'
         } else if (player1.level === 4) {
@@ -260,6 +267,12 @@ repairBtnEl.addEventListener("click", e => {
     }, 2000);    
 });
 
+function gameOver(player) {
+    if (player.currentHp <= 0){
+        window.location.href = "endscreen.html"
+    }
+}
+
 // Game Initialization
 document.getElementById('title-screen-music').play();
 // Start Battle (change this based on your game flow)
@@ -269,13 +282,35 @@ function startBattle() {
   // Other initialization code for starting the battle
 }
 // End Game (change this based on your game flow)
-function endGame() {
+function endGameAudio() {
   document.getElementById('battle-music').pause();
   document.getElementById('end-screen-music').play();
-  // Other code for ending the game
+  
 }
 
-
+//added music FUNCTIONS to transition between each screen/-/jeremy/
+const titleScreenMusic = new Audio('title-screen-music.wav');
+const battleMusic = new Audio('battle-music.wav');
+const endGameMusic = new Audio('end-game-music.wav');
+// Function to play title screen music
+function playTitleScreenMusic() {
+    titleScreenMusic.play();
+}
+// Function to pause title screen music and play battle music
+function enterBattle() {
+    titleScreenMusic.pause();
+    battleMusic.play();
+}
+// Function to pause battle music and play end game music
+function enterEndGame() {
+    battleMusic.pause();
+    endGameMusic.play();
+}
+// Call playTitleScreenMusic function when the page loads or when needed
+playTitleScreenMusic();
+document.addEventListener('click', () => {
+    titleScreenMusic.play();
+});
 
 
 

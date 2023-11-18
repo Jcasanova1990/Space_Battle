@@ -14,14 +14,18 @@
 </head>
 
 <body>
+  <div class="game-over-container" style="display: none">
+    <h1 class="game-over-h1">YOU DIED!</h1>
+    <a href="game.html"><button class="game-over-btn">Play again?</button></a>
+</div>
+  <div class="hero-container">
+    
   <!-- Audio Elements -->
-  <div id="all-sound">
     <audio id="attack-sound" src="https://docs.google.com/uc?export=download&id=1meUjLwi9QsWogZkDvBfUH_RcZheHpRK9"></audio>
     <audio id="repair-sound" src="https://docs.google.com/uc?export=download&id=11loKDUxfFw0GuCPL5wMSGszRfYjkn_D7"></audio>
-    <!-- <audio id="battle-music" src="https://docs.google.com/uc?export=download&id=1hOLO2iyrr6u1VR0Q6GIbyyFFjNkTwSG6" loop></audio>
-    <audio id="title-screen-music" src="https://docs.google.com/uc?export=download&id=1EqebZCOLJeKHaDwhOjs6_L-YFGP04bLT" loop></audio>
-    <audio id="end-screen-music" src="https://docs.google.com/uc?export=download&id=1xDun_-61-XaAQKQCGeOxrwGODoXekuXs"  loop></audio> -->
-  </div>
+    <audio id="battle-music" autoplay loop>
+    <source src="https://docs.google.com/uc?export=download&id=1hOLO2iyrr6u1VR0Q6GIbyyFFjNkTwSG6" type="audio/wav">
+    </audio>
  <!-- HP Bars in header -->
  <div class="hp-bars">
   <div class="hp-bars__player">
@@ -79,7 +83,8 @@
   <button id='repair-btn' class="player-move-btn">Repair</button>
   <!-- <button id='defend-btn' class="player-move-btn">Defend</button> -->
 </div>
-   
+</div>
+
 </body>
 
 </html>
