@@ -134,14 +134,15 @@ body {
   left: 5rem;
   bottom: 14rem;
   z-index: -1;
-  animation: playerAttack 3s ease;
+  animation: playerAttack 8s ease;
 }
+
 .enemy {
   margin-bottom: 10rem;
   animation: shipIdleEnemy 3s infinite;
 }
 .enemy-ship {
-  width: 80rem;
+  height: 40rem;
   margin-right: auto;
 }
 /* .garbage-attack {
@@ -152,7 +153,7 @@ body {
   z-index: -1000;
   animation: garbageAttack 12s ease;
 } */
-.arthur-attack {
+.attack {
   position: absolute;
   width: 10rem;
   margin-right: 0rem;

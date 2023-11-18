@@ -1,3 +1,22 @@
+// EXECUTIVE SUMMARY
+// 10 levels each with a different boss who have varying levels of health
+// In each level the player can either attack or repair and after they make their move, the enemy will automatically retaliate with an attack
+// The player and enemy's HP is changed based off of the damage inflicted by the attack
+// When either the player or the enemy hp gets to 0 the level will end
+// If the player wins they move on to the next boss, if they lose, the player will be able to retry
+
+//JS
+    //Danny talk through player and enemy objects
+    //Jalen talks about attack function
+    //Juan talks about level health
+
+
+//Tyler talk about main battle screen HTML & CSS
+//Jeremy and Will sound 
+//Isaiah talks about CSS for start screen
+
+
+
 //SETTING VARIABLES ===========================================
 const attackBtnEl = document.getElementById('attack-btn');
 const repairBtnEl = document.getElementById('repair-btn');
@@ -22,6 +41,9 @@ const enemyImgEl = document.getElementById('enemy-ship');
 
 const heroContainer = document.querySelector('.hero-container')
 const gameOver = document.querySelector('.game-over-container')
+
+//ATTACKS
+const attackByEnemy = document.querySelector('.attack')
 
 
 // UTILITY FUNCTIONS ===========================================
@@ -53,6 +75,10 @@ function initializeContent(player, enemy) {
     enemyHealthNumberEl.textContent = enemies[currentEnemyIndex].currentHp;
     enemyHealthMaxNumberEl.textContent = enemies[currentEnemyIndex].maxHp;
 // endGame(player, enemy)
+    if (player1.currentHp === 0) {
+        gameOver.style.display = "flex"
+        heroContainer.style.filter = 'blur(10px)'
+}
 }
 
 // SPACESHIP CLASS =========================================================
@@ -169,24 +195,23 @@ class Player extends Spaceship {
 // ENEMY SUBCLASS EXTENDING SPACESHIP
 class Enemy extends Spaceship {
     constructor(name, hpStart, accuracy, dmg, level, hpAdded)  {
-        super(name, hpStart, accuracy, dmg, level, hpAdded);        
+        super(name, hpStart, accuracy, dmg, level, hpAdded);
     }
 }
 
-
 //PLAYER/ENEMY OBJECTS ===========================================
-const player1 = new Player('Player 1', 100, 7, 80, 1, 0);
+const player1 = new Player('Player 1', 100, 7, 40, 1, 0);
 
 const enemy1 = new Enemy("Starshredder", 100, 7, 5, 1, 0);
-const enemy2 = new Enemy("Nebula Scourge", 100, 7, 5, 2, 0);
-const enemy3 = new Enemy("Cosmic Menace", 100, 7, 5, 3, 0);
-const enemy4 = new Enemy("Galactic Destructor", 100, 7, 5, 4, 0);
-const enemy5 = new Enemy("Dark Matter Raider", 100, 7, 5, 5, 0);
-const enemy6 = new Enemy("Quantum Marauder", 100, 7, 5, 6, 0);
-const enemy7 = new Enemy("Interstellar Annihilator", 100, 7, 5, 7, 0);
-const enemy8 = new Enemy("Plasma Leviathan", 100, 7, 5, 8, 0);
-const enemy9 = new Enemy("GARBAGE MAN", 100, 7, 5, 9, 0);
-const enemy10 = new Enemy("Arthur SS", 100, 7, 5, 10, 0);
+const enemy2 = new Enemy("Nebula Scourge", 110, 7, 5, 2, 0);
+const enemy3 = new Enemy("Cosmic Menace", 120, 7, 5, 3, 0);
+const enemy4 = new Enemy("Galactic Destructor", 130, 7, 5, 4, 0);
+const enemy5 = new Enemy("Dark Matter Raider", 175, 7, 5, 5, 0);
+const enemy6 = new Enemy("Quantum Marauder", 200, 7, 5, 6, 0);
+const enemy7 = new Enemy("Interstellar Annihilator", 220, 7, 5, 7, 0);
+const enemy8 = new Enemy("Plasma Leviathan", 250, 7, 5, 8, 0);
+const enemy9 = new Enemy("GARBAGE MAN", 300, 7, 5, 9, 0);
+const enemy10 = new Enemy("Arthur SS", 1000, 7, 5, 10, 0);
 
 
 // STARTING LEVEL 1 ===========================================
@@ -213,14 +238,7 @@ level.textContent = `${player1.level}`;
     const timeout = setTimeout(() => {        
         enemies[currentEnemyIndex].attack(player1);   
         initializeContent(player1, enemies[currentEnemyIndex]);
-        gameComplete(player1);
     }, 100);
-
-    if (player1.currentHp === 0) {
-        gameOver.style.display = "flex"
-        heroContainer.style.filter = 'blur(10px)'
-    
-    }
 
     if (enemies[currentEnemyIndex].currentHp <= 0) {
         currentEnemyIndex++;
@@ -235,19 +253,35 @@ level.textContent = `${player1.level}`;
             attackBtnEl.disabled = false;
             repairBtnEl.disabled = false;
         }
-        // else {
-        //     window.location.href = 'endscreen.html'
-        //     playLogs.innerHTML = "You win!";
-        //     console.log("You win!");
-        // }
+        else {
+            gameComplete(enemies[9]);
+        }
         
         //update img src for enemy ship
-        if (player1.level === 2) {
+            if (player1.level === 2) {
             enemyImgEl.src = 'images/spaceshits_420.png'
         } else if (player1.level === 3) {
-            enemyImgEl.src = 'images/spaceshits_420.png'
+            enemyImgEl.src = 'images/enemy3_480.png'
+            enemyImgEl.style.transform = "scaleX(-1)"
         } else if (player1.level === 4) {
-            enemyImgEl.src = 'images/spaceshits_420.png'
+            enemyImgEl.src = 'images/enemy5_720.png'
+            enemyImgEl.style.transform = "rotate(-75deg)"
+        } else if (player1.level === 5) {
+            enemyImgEl.src = 'images/enemy6_480.png'
+            enemyImgEl.style.transform = "scaleX(-1)"
+        } else if (player1.level === 6) {
+            enemyImgEl.src = 'images/enemy7_720.png'
+        } else if (player1.level === 7) {
+            enemyImgEl.src = 'images/enemy8_720.png'
+            enemyImgEl.style.transform = "scaleX(1)"
+        } else if (player1.level === 8) {
+            enemyImgEl.src = 'https://i.imgur.com/2Jmht3l.png'
+        } else if (player1.level === 9) {
+                enemyImgEl.src = 'https://i.imgur.com/InBfg8s.png'
+                attackByEnemy.src = "https://i.imgur.com/v6hyIAT.png"
+        } else if (player1.level === 10) {
+                enemyImgEl.src = 'https://i.imgur.com/qen5WvN.png'
+                attackByEnemy.src = 'https://i.imgur.com/eAdfqEm.png'
         }
     }
 });
@@ -268,8 +302,8 @@ repairBtnEl.addEventListener("click", e => {
     }, 2000);    
 });
 
-function gameComplete(player) {
-    if (player.currentHp <= 0){
+function gameComplete(target) {
+    if (target.currentHp <= 0){
         window.location.href = "endscreen.html"
     }
 }
